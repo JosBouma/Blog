@@ -52,8 +52,10 @@ defineProps(
 }
 
 @media screen and (max-width: 60rem) {
-  .slice__two-column {
-    grid-template-columns: none;
+  .slice__two-column.default,
+  .slice__two-column.alternative {
+    display: flex;
+    flex-direction: column;
   }
 }
 </style>
