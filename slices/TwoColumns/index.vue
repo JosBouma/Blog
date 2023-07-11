@@ -63,7 +63,7 @@ defineProps(
 <template>
   <section class="slice__two-column" :class="slice.variation">
     <div class="first">
-      <prismic-image :field="slice.primary.image" />
+      <img-x :field="slice.primary.image" />
     </div>
     <div class="second">
       <h2>{{ slice.primary.header }}</h2>

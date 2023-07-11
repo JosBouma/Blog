@@ -2,7 +2,7 @@
 import { Content } from "@prismicio/client"
 import { components } from "~/slices"
 const { client } = usePrismic()
-const { data: doc } = await useAsyncData<Content.IndexDocument>('index', () => client.getByUID('index', 'index'))
+const { data: doc } = await useAsyncData<Content.IndexDocument>('index', () => client.getSingle('index'))
 </script>
 
 <template>

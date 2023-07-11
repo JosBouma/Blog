@@ -6,7 +6,6 @@ const { client } = usePrismic()
 <style>
 #app-menu {
   position: sticky;
-  position: relative;
 }
 
 #app-menu * {
