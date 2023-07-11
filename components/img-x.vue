@@ -76,7 +76,7 @@ const width = computed(() => {
   return props.field.dimensions?.width as number
 })
 
-const height = (() => {
+const height = computed(() => {
   return props.field.dimensions?.height as number
 })
 
