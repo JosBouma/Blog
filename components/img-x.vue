@@ -6,16 +6,16 @@ const props = defineProps({
     type: Object as PropType<prismic.ImageField<never>>,
     required: true,
     validator(prop: prismic.ImageField<never>) {
-      if(!('url' in prop)) {
+      if (!('url' in prop)) {
         return false
       }
-      if(typeof prop.url !== 'string') {
+      if (typeof prop.url !== 'string') {
         return false
       }
-      if(!('dimensions' in prop)) {
+      if (!('dimensions' in prop)) {
         return false
       }
-      if(!isFinite(prop.dimensions.height)) {
+      if (!isFinite(prop.dimensions.height)) {
         return false
       }
       return true
@@ -38,18 +38,18 @@ function createImgixURL(src: string, qs: URLSearchParams, width: number): string
 
 function calcSet(src: string, qs: URLSearchParams, maxWidth: number): string[] {
   const ret: string[] = [createImgixURL(src, qs, maxWidth)]
-  if(maxWidth === 0 || maxWidth > 8000) {
+  if (maxWidth === 0 || maxWidth > 8000) {
     throw new RangeError('Width out of range')
   }
-  
-  if(maxWidth <= 40) {
+
+  if (maxWidth <= 40) {
     return ret
   }
 
   const muliplier = maxWidth > 1500 ? 1000 : 10
   let amount = Math.floor(Math.log10(maxWidth * muliplier))
   const step = Math.floor(maxWidth / amount)
-  while(amount--) {
+  while (amount--) {
     ret.push(createImgixURL(src, qs, maxWidth - step))
     maxWidth -= step
   }
@@ -60,7 +60,7 @@ function calcSet(src: string, qs: URLSearchParams, maxWidth: number): string[] {
 
 const srcset = computed(() => {
   const originalUrl = props.field.url as string
-  const [ src, qs ] = originalUrl.split('?')
+  const [src, qs] = originalUrl.split('?')
   return calcSet(
     src,
     new URLSearchParams(qs),
@@ -90,16 +90,6 @@ const sizes = computed(() => {
 </script>
 
 <template>
-  <div>
-    <img
-      :src="src"
-      :width="width"
-      :height="height"
-      :alt="alt"
-      :loading="loading"
-      :fetchpriority="priority"
-      :sizes="sizes"
-      :srcset="srcset"
-    />
-  </div>
+  <img :src="src" :width="width" :height="height" :alt="alt" :loading="loading" :fetchpriority="priority" :sizes="sizes"
+    :srcset="srcset" />
 </template>
