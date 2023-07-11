@@ -1,0 +1,55 @@
+@import url('./normalize.css');
+
+:root {
+  --color-primary: #e9e9e9;
+  --color-secondary: #333333;
+  --color-accent: #373737;
+  --color-supplement: #262626;
+  --color-highlight: #fbb104;
+  --font-main: "Poppins", Arial, Helvetica, sans-serif;
+  --fluid-width-large: clamp(1rem, calc(0.8rem + 1vw), 2rem);
+  --fluid-width: clamp(1rem, calc(0.95rem + 0.25vw), 1.25rem);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-size: 1.25rem;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  color: var(--color-primary);
+  line-height: 1.4;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--color-highlight);
+}
+
+.util-debug,
+.util-debug * {
+  outline: blue solid 1px;
+}
+
+#__nuxt {
+  height: 100%;
+}
