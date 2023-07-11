@@ -76,7 +76,7 @@ const width = computed(() => {
   return props.field.dimensions?.width as number
 })
 
-const height = computed(() => {
+const height = (() => {
   return props.field.dimensions?.height as number
 })
 
@@ -93,6 +93,8 @@ const sizes = computed(() => {
   <div>
     <img
       :src="src"
+      :width="width"
+      :height="height"
       :alt="alt"
       :loading="loading"
       :fetchpriority="priority"
